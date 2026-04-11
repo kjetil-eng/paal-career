@@ -1,15 +1,11 @@
 "use client";
 
-import {
-  AnimatePresence,
-  LayoutGroup,
-  motion,
-  type Variants,
-} from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useTranslations } from "next-intl";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { fadeUp, staggerContainer, viewportOnce } from "@/lib/animations";
 import { ParallaxText } from "@/components/ui/ParallaxText";
+import { cn } from "@/lib/utils";
 
 type Region = {
   name: string;
@@ -18,42 +14,6 @@ type Region = {
   tagline: string;
   body: string;
   highlights: string[];
-};
-
-const easeOutExpo = [0.2, 0.8, 0.2, 1] as const;
-
-const contentReveal: Variants = {
-  hidden: { opacity: 0, y: 24 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { delay: 0.38, duration: 0.7, ease: easeOutExpo },
-  },
-  exit: {
-    opacity: 0,
-    y: 10,
-    transition: { duration: 0.18, ease: "easeIn" },
-  },
-};
-
-const contentStagger: Variants = {
-  hidden: {},
-  show: {
-    transition: { staggerChildren: 0.07, delayChildren: 0.42 },
-  },
-  exit: {
-    transition: { staggerChildren: 0.03, staggerDirection: -1 },
-  },
-};
-
-const item: Variants = {
-  hidden: { opacity: 0, y: 16 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: easeOutExpo },
-  },
-  exit: { opacity: 0, y: 6, transition: { duration: 0.12 } },
 };
 
 function IconTerroir() {
@@ -110,34 +70,12 @@ function IconAccess() {
 export function Philosophy() {
   const t = useTranslations("philosophy");
   const regions = t.raw("regions") as Region[];
-  const [openRegion, setOpenRegion] = useState<Region | null>(null);
-
-  useEffect(() => {
-    if (!openRegion) return;
-    const html = document.documentElement;
-    const prev = html.style.overflow;
-    html.style.overflow = "hidden";
-    html.classList.add("lenis-stopped");
-
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpenRegion(null);
-    };
-    window.addEventListener("keydown", onKey);
-
-    return () => {
-      html.style.overflow = prev;
-      html.classList.remove("lenis-stopped");
-      window.removeEventListener("keydown", onKey);
-    };
-  }, [openRegion]);
+  // Default: first region always selected so info is visible from start
+  const [activeRegion, setActiveRegion] = useState<Region>(regions[0]);
 
   const cards = [
     { title: t("terroir_title"), quote: t("terroir_quote"), Icon: IconTerroir },
-    {
-      title: t("precision_title"),
-      quote: t("precision_quote"),
-      Icon: IconPrecision,
-    },
+    { title: t("precision_title"), quote: t("precision_quote"), Icon: IconPrecision },
     { title: t("access_title"), quote: t("access_quote"), Icon: IconAccess },
   ];
 
@@ -146,6 +84,7 @@ export function Philosophy() {
       id="philosophy"
       className="relative overflow-hidden bg-warm-dark py-32 text-warm-surface"
     >
+      {/* Parallax words backdrop */}
       <div className="pointer-events-none absolute inset-0 flex flex-col justify-center gap-8 overflow-hidden opacity-[0.06]">
         <ParallaxText speed={300}>
           <span className="font-playfair text-[18vw] leading-none text-warm-gold whitespace-nowrap">
@@ -198,213 +137,116 @@ export function Philosophy() {
           ))}
         </motion.div>
 
+        {/* Regions — split layout: menu left, info panel right */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={viewportOnce}
           transition={{ duration: 0.9 }}
-          className="mt-24 flex flex-col items-center gap-8"
+          className="mt-24"
         >
-          <p className="text-[11px] uppercase tracking-[0.3em] text-warm-surface/60 font-sans">
+          <p className="mb-10 text-center text-[11px] uppercase tracking-[0.3em] text-warm-surface/60 font-sans">
             — {t("regions_label")}
           </p>
 
-          <LayoutGroup id="regions">
-            <motion.ul
-              variants={staggerContainer}
-              initial="hidden"
-              whileInView="show"
-              viewport={viewportOnce}
-              className="grid w-full max-w-5xl grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4"
-            >
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-16">
+            {/* Left: region menu */}
+            <ul className="md:col-span-4 flex flex-col gap-0 border-t border-warm-surface/15">
               {regions.map((r) => {
-                const isOpen = openRegion?.name === r.name;
+                const isActive = activeRegion.name === r.name;
                 return (
-                  <motion.li
+                  <li
                     key={r.name}
-                    variants={fadeUp}
-                    className="relative min-h-[200px]"
+                    className="border-b border-warm-surface/15"
                   >
-                    {!isOpen && (
-                      <motion.button
-                        type="button"
-                        layoutId={`region-card-${r.name}`}
-                        onClick={() => setOpenRegion(r)}
-                        className="group absolute inset-0 flex flex-col items-start gap-4 border border-warm-surface/15 bg-warm-surface/[0.02] px-6 py-7 text-left transition-colors duration-500 hover:border-warm-gold hover:bg-warm-surface/[0.06] focus-visible:border-warm-gold focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-warm-gold"
-                        whileHover={{ y: -4 }}
-                        transition={{
-                          type: "spring",
-                          stiffness: 260,
-                          damping: 24,
-                        }}
-                      >
-                        <motion.span
-                          layoutId={`region-number-${r.name}`}
-                          className="font-cormorant text-xs italic text-warm-gold/70"
-                        >
+                    <button
+                      type="button"
+                      onClick={() => setActiveRegion(r)}
+                      className={cn(
+                        "group flex w-full items-center justify-between py-5 text-left transition-colors duration-500",
+                        isActive
+                          ? "text-warm-gold"
+                          : "text-warm-surface/75 hover:text-warm-gold",
+                      )}
+                      aria-pressed={isActive}
+                    >
+                      <span className="flex items-baseline gap-4">
+                        <span className="font-cormorant text-xs italic text-warm-surface/40">
                           {r.number}
-                        </motion.span>
-                        <motion.span
-                          layoutId={`region-name-${r.name}`}
-                          className="font-playfair text-2xl leading-tight text-warm-surface"
-                        >
-                          {r.name}
-                        </motion.span>
-                        <motion.span
-                          layoutId={`region-subtitle-${r.name}`}
-                          className="text-[10px] uppercase tracking-[0.22em] text-warm-surface/50 font-sans"
-                        >
-                          {r.subtitle}
-                        </motion.span>
-                        <span
-                          aria-hidden
-                          className="mt-auto flex items-center gap-3 pt-4 text-[10px] uppercase tracking-[0.22em] text-warm-surface/70 font-sans transition-colors duration-500 group-hover:text-warm-gold"
-                        >
-                          <span className="block h-px w-8 bg-current transition-all duration-500 group-hover:w-14" />
-                          {t("regions_cta")}
                         </span>
-                      </motion.button>
-                    )}
-                  </motion.li>
+                        <span className="font-playfair text-2xl md:text-3xl">
+                          {r.name}
+                        </span>
+                      </span>
+                      <span
+                        className={cn(
+                          "text-xs transition-all duration-500",
+                          isActive
+                            ? "translate-x-0 opacity-100"
+                            : "-translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-60",
+                        )}
+                      >
+                        →
+                      </span>
+                    </button>
+                  </li>
                 );
               })}
-            </motion.ul>
+            </ul>
 
-            <AnimatePresence>
-              {openRegion && (
-                <>
-                  <motion.div
-                    key="backdrop"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.5, ease: easeOutExpo }}
-                    onClick={() => setOpenRegion(null)}
-                    className="fixed inset-0 z-[140] bg-warm-dark/85 backdrop-blur-md"
-                  />
+            {/* Right: info panel (always visible, fades between regions) */}
+            <div className="md:col-span-8 relative min-h-[420px]">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeRegion.name}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -6 }}
+                  transition={{
+                    duration: 0.6,
+                    ease: [0.25, 0.1, 0.25, 1],
+                  }}
+                  className="border-l border-warm-surface/15 pl-0 md:pl-10 text-warm-surface"
+                >
+                  <div className="flex items-baseline gap-4 font-cormorant italic text-warm-gold/80">
+                    <span>{activeRegion.number}</span>
+                    <span className="block h-px w-10 bg-warm-cognac" />
+                    <span className="text-[11px] uppercase tracking-[0.22em] text-warm-surface/60 font-sans not-italic">
+                      {activeRegion.subtitle}
+                    </span>
+                  </div>
 
-                  <motion.article
-                    key="panel"
-                    layoutId={`region-card-${openRegion.name}`}
-                    transition={{ duration: 0.7, ease: easeOutExpo }}
-                    className="fixed left-1/2 top-1/2 z-[150] flex w-[94vw] max-w-3xl -translate-x-1/2 -translate-y-1/2 flex-col bg-warm-bg shadow-[0_60px_120px_-40px_rgba(0,0,0,0.8)] md:w-full"
-                  >
-                    <div className="h-[3px] bg-warm-gold" />
+                  <h3 className="mt-5 font-playfair text-4xl leading-[1.05] md:text-5xl">
+                    {activeRegion.name}
+                  </h3>
 
-                    <div className="relative max-h-[85vh] overflow-y-auto overflow-x-hidden px-8 py-14 md:px-16 md:py-20">
-                      <motion.button
-                        type="button"
-                        onClick={() => setOpenRegion(null)}
-                        aria-label={t("regions_close")}
-                        initial={{ opacity: 0, scale: 0.7 }}
-                        animate={{
-                          opacity: 1,
-                          scale: 1,
-                          transition: {
-                            delay: 0.5,
-                            duration: 0.5,
-                            ease: easeOutExpo,
-                          },
-                        }}
-                        exit={{ opacity: 0, transition: { duration: 0.15 } }}
-                        className="absolute right-5 top-5 flex h-11 w-11 items-center justify-center text-warm-dark transition-colors hover:text-warm-cognac focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-warm-cognac md:right-7 md:top-7"
-                      >
-                        <svg
-                          viewBox="0 0 24 24"
-                          className="h-5 w-5"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.4"
-                          strokeLinecap="round"
+                  <p className="mt-5 font-cormorant text-2xl italic leading-snug text-warm-surface/80 md:text-3xl">
+                    &ldquo;{activeRegion.tagline}&rdquo;
+                  </p>
+
+                  <p className="mt-8 max-w-2xl text-base leading-[1.8] text-warm-surface/75 md:text-lg">
+                    {activeRegion.body}
+                  </p>
+
+                  <div className="mt-10">
+                    <p className="mb-4 text-[10px] uppercase tracking-[0.3em] text-warm-surface/55 font-sans">
+                      — {t("regions_highlights_label")}
+                    </p>
+                    <ul className="flex flex-wrap gap-2">
+                      {activeRegion.highlights.map((h) => (
+                        <li
+                          key={h}
+                          className="border border-warm-surface/20 px-3 py-1.5 text-[10px] uppercase tracking-[0.2em] text-warm-surface/80"
                         >
-                          <path d="M5 5L19 19M19 5L5 19" />
-                        </svg>
-                      </motion.button>
-
-                      <div className="flex items-center gap-4 font-cormorant text-base italic text-warm-cognac">
-                        <motion.span
-                          layoutId={`region-number-${openRegion.name}`}
-                          className="font-cormorant text-xl italic text-warm-gold"
-                        >
-                          {openRegion.number}
-                        </motion.span>
-                        <motion.span
-                          initial={{ opacity: 0, scaleX: 0 }}
-                          animate={{
-                            opacity: 1,
-                            scaleX: 1,
-                            transition: {
-                              delay: 0.38,
-                              duration: 0.6,
-                              ease: easeOutExpo,
-                            },
-                          }}
-                          exit={{ opacity: 0, scaleX: 0, transition: { duration: 0.15 } }}
-                          style={{ transformOrigin: "0% 50%" }}
-                          className="block h-px w-10 bg-warm-cognac"
-                        />
-                        <motion.span
-                          layoutId={`region-subtitle-${openRegion.name}`}
-                          className="font-cormorant text-lg italic text-warm-cognac"
-                        >
-                          {openRegion.subtitle}
-                        </motion.span>
-                      </div>
-
-                      <motion.h3
-                        layoutId={`region-name-${openRegion.name}`}
-                        className="mt-6 font-playfair text-5xl leading-[1.02] text-warm-dark md:text-7xl"
-                      >
-                        {openRegion.name}
-                      </motion.h3>
-
-                      <motion.div
-                        variants={contentStagger}
-                        initial="hidden"
-                        animate="show"
-                        exit="exit"
-                      >
-                        <motion.p
-                          variants={item}
-                          className="mt-6 font-cormorant text-2xl italic leading-snug text-warm-muted md:text-3xl"
-                        >
-                          &ldquo;{openRegion.tagline}&rdquo;
-                        </motion.p>
-
-                        <motion.div
-                          variants={item}
-                          className="mt-10 h-px w-16 bg-warm-cognac"
-                        />
-
-                        <motion.p
-                          variants={item}
-                          className="mt-8 font-sans text-lg leading-[1.8] text-warm-text/85"
-                        >
-                          {openRegion.body}
-                        </motion.p>
-
-                        <motion.div variants={contentReveal} className="mt-12">
-                          <p className="mb-5 text-[10px] uppercase tracking-[0.3em] text-warm-muted font-sans">
-                            — {t("regions_highlights_label")}
-                          </p>
-                          <ul className="flex flex-wrap gap-2">
-                            {openRegion.highlights.map((h) => (
-                              <li
-                                key={h}
-                                className="border border-warm-cream bg-warm-surface px-4 py-2 text-[11px] uppercase tracking-[0.2em] text-warm-dark"
-                              >
-                                {h}
-                              </li>
-                            ))}
-                          </ul>
-                        </motion.div>
-                      </motion.div>
-                    </div>
-                  </motion.article>
-                </>
-              )}
-            </AnimatePresence>
-          </LayoutGroup>
+                          {h}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>

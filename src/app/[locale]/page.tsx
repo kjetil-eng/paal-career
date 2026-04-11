@@ -2,7 +2,6 @@ import { setRequestLocale } from "next-intl/server";
 import { Header } from "@/components/ui/Header";
 import { Footer } from "@/components/ui/Footer";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
-import { CustomCursor } from "@/components/ui/CustomCursor";
 import { LenisProvider } from "@/components/ui/LenisProvider";
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
@@ -25,7 +24,6 @@ export default async function HomePage({
   return (
     <LenisProvider>
       <ScrollProgress />
-      <CustomCursor />
       <Header />
       <main>
         <Hero />

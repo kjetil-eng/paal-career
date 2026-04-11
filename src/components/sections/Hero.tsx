@@ -60,7 +60,13 @@ export function Hero() {
             transition={{ duration: 0.9, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
             className="block"
           >
-            {t("heading_line1")}
+            {t.rich("heading_line1", {
+              highlight: (chunks) => (
+                <span className="inline-block bg-[#6b1e28] px-[0.18em] pb-[0.02em] text-warm-surface">
+                  {chunks}
+                </span>
+              ),
+            })}
           </motion.span>
           <motion.span
             initial={{ opacity: 0, y: 40 }}
