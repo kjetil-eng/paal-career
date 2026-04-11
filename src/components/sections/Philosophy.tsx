@@ -16,57 +16,6 @@ type Region = {
   highlights: string[];
 };
 
-function IconTerroir() {
-  return (
-    <svg viewBox="0 0 48 48" fill="none" className="h-10 w-10 text-warm-gold">
-      <circle cx="24" cy="30" r="14" stroke="currentColor" strokeWidth="1.2" />
-      <path
-        d="M24 16 C 20 20, 28 24, 24 30"
-        stroke="currentColor"
-        strokeWidth="1.2"
-        strokeLinecap="round"
-      />
-      <circle cx="24" cy="12" r="2" fill="currentColor" />
-    </svg>
-  );
-}
-function IconPrecision() {
-  return (
-    <svg viewBox="0 0 48 48" fill="none" className="h-10 w-10 text-warm-gold">
-      <path
-        d="M16 6 H 32 L 30 22 C 30 28 26 30 24 30 C 22 30 18 28 18 22 Z"
-        stroke="currentColor"
-        strokeWidth="1.2"
-        strokeLinejoin="round"
-      />
-      <path d="M24 30 V 42" stroke="currentColor" strokeWidth="1.2" />
-      <path
-        d="M18 42 H 30"
-        stroke="currentColor"
-        strokeWidth="1.2"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
-function IconAccess() {
-  return (
-    <svg viewBox="0 0 48 48" fill="none" className="h-10 w-10 text-warm-gold">
-      <rect
-        x="12"
-        y="6"
-        width="24"
-        height="36"
-        stroke="currentColor"
-        strokeWidth="1.2"
-      />
-      <path d="M24 6 V 42" stroke="currentColor" strokeWidth="1.2" />
-      <circle cx="20" cy="24" r="1.2" fill="currentColor" />
-      <circle cx="28" cy="24" r="1.2" fill="currentColor" />
-    </svg>
-  );
-}
-
 export function Philosophy() {
   const t = useTranslations("philosophy");
   const regions = t.raw("regions") as Region[];
@@ -74,9 +23,9 @@ export function Philosophy() {
   const [activeRegion, setActiveRegion] = useState<Region>(regions[0]);
 
   const cards = [
-    { title: t("terroir_title"), quote: t("terroir_quote"), Icon: IconTerroir },
-    { title: t("precision_title"), quote: t("precision_quote"), Icon: IconPrecision },
-    { title: t("access_title"), quote: t("access_quote"), Icon: IconAccess },
+    { num: "I", title: t("terroir_title"), quote: t("terroir_quote") },
+    { num: "II", title: t("precision_title"), quote: t("precision_quote") },
+    { num: "III", title: t("access_title"), quote: t("access_quote") },
   ];
 
   return (
@@ -105,7 +54,7 @@ export function Philosophy() {
             variants={fadeUp}
             className="mb-5 text-[11px] uppercase tracking-[0.3em] text-warm-gold font-sans"
           >
-            — {t("eyebrow")}
+            {t("eyebrow")}
           </motion.p>
           <motion.h2
             variants={fadeUp}
@@ -126,10 +75,12 @@ export function Philosophy() {
             <motion.article
               key={i}
               variants={fadeUp}
-              className="group relative bg-warm-surface p-10 text-warm-dark border-t-2 border-warm-cognac transition-transform duration-500 hover:-translate-y-1"
+              className="group relative bg-warm-surface p-10 text-warm-dark border-t border-warm-cognac transition-transform duration-500 hover:-translate-y-1"
             >
-              <card.Icon />
-              <h3 className="mt-7 font-playfair text-3xl">{card.title}</h3>
+              <span className="font-cormorant text-sm italic tracking-widest text-warm-cognac">
+                {card.num}
+              </span>
+              <h3 className="mt-8 font-playfair text-3xl">{card.title}</h3>
               <p className="mt-5 font-cormorant text-2xl italic text-warm-muted leading-snug">
                 &ldquo;{card.quote}&rdquo;
               </p>
@@ -146,7 +97,7 @@ export function Philosophy() {
           className="mt-24"
         >
           <p className="mb-10 text-center text-[11px] uppercase tracking-[0.3em] text-warm-surface/60 font-sans">
-            — {t("regions_label")}
+            {t("regions_label")}
           </p>
 
           <div className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-16">
@@ -230,7 +181,7 @@ export function Philosophy() {
 
                   <div className="mt-10">
                     <p className="mb-4 text-[10px] uppercase tracking-[0.3em] text-warm-surface/55 font-sans">
-                      — {t("regions_highlights_label")}
+                      {t("regions_highlights_label")}
                     </p>
                     <ul className="flex flex-wrap gap-2">
                       {activeRegion.highlights.map((h) => (

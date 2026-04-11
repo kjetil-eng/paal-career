@@ -27,6 +27,7 @@
     "p2": "Fra de kjølige kjellerne på Noma i København og de ikoniske salene på Sketch i London, til Tango i Stavanger og hans eget Tempo Vinbar i Sandnes — har Pål bygget seg en karriere få norske sommelierer kan matche.",
     "p3": "Nå er han tilbake der det hele startet: Skjolden Hotell ved Sognefjorden. En bevisst retur — ikke som flukten hjem, men som valget om å bringe alt han har lært tilbake til et sted som fortjener det.",
     "p4": "Han er ikke den typen som imponerer deg med et navn du ikke kan uttale. Han er den typen som finner akkurat den flasken som gjør kvelden uforglemmelig.",
+    "pull_quote": "Han finner akkurat den flasken som gjør kvelden uforglemmelig.",
     "certifications_label": "Sertifiseringer",
     "cert_1": "Fagbrev Servitør",
     "cert_2": "Vinkelner, Kulinarisk Akademi",
@@ -90,7 +91,7 @@
     "precision_quote": "Det riktige glasset til rett øyeblikk krever kunnskap — og instinkt.",
     "access_title": "Tilgjengelighet",
     "access_quote": "God vin skal ikke være skummelt. Det skal være en dør inn.",
-    "regions_label": "Hjertesaker",
+    "regions_label": "My cup of tea",
     "regions_cta": "Les mer",
     "regions_close": "Lukk",
     "regions_highlights_label": "Nøkkeldruer",
@@ -147,7 +148,9 @@
     "eyebrow": "International Press",
     "text": "In Stavanger, we are more classic. Champagne, red and white Burgundy, and German Riesling are all popular. Right now, the things I find most interesting are South African whites and reds, and Austrian Pinot Noir.",
     "author": "Pål Gøran Stolt-Larsen Pettersen",
-    "source": "VinePair"
+    "source": "VinePair",
+    "read_article": "Les artikkelen på VinePair",
+    "url": "https://vinepair.com/articles/sommeliers-favorite-wines/"
   },
   "skjolden": {
     "eyebrow": "Skjolden Hotell",

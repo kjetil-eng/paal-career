@@ -8,8 +8,6 @@ import { fadeUp, staggerContainer, viewportOnce } from "@/lib/animations";
 export function About() {
   const t = useTranslations("about");
 
-  const paragraphs = [t("p1"), t("p2"), t("p3"), t("p4")];
-
   return (
     <section id="about" className="relative bg-warm-bg py-24 md:py-32">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 md:grid-cols-12 md:gap-16 md:px-10">
@@ -54,7 +52,7 @@ export function About() {
               variants={fadeUp}
               className="mb-6 text-[11px] uppercase tracking-[0.3em] text-warm-cognac font-sans"
             >
-              — {t("eyebrow")}
+              {t("eyebrow")}
             </motion.p>
 
             <motion.h2
@@ -65,11 +63,21 @@ export function About() {
             </motion.h2>
 
             <div className="space-y-7 text-lg leading-[1.75] text-warm-text/85 md:text-xl">
-              {paragraphs.map((para, i) => (
-                <motion.p key={i} variants={fadeUp}>
-                  {para}
-                </motion.p>
-              ))}
+              <motion.p variants={fadeUp}>{t("p1")}</motion.p>
+              <motion.p variants={fadeUp}>{t("p2")}</motion.p>
+            </div>
+
+            {/* Pull-quote — editorial rhythm break */}
+            <motion.blockquote
+              variants={fadeUp}
+              className="my-14 border-l-2 border-warm-cognac pl-8 font-cormorant text-3xl italic leading-[1.25] text-warm-dark md:text-4xl md:leading-[1.2]"
+            >
+              &ldquo;{t("pull_quote")}&rdquo;
+            </motion.blockquote>
+
+            <div className="space-y-7 text-lg leading-[1.75] text-warm-text/85 md:text-xl">
+              <motion.p variants={fadeUp}>{t("p3")}</motion.p>
+              <motion.p variants={fadeUp}>{t("p4")}</motion.p>
             </div>
 
             <motion.div

@@ -27,6 +27,7 @@
     "p2": "From the cool cellars of Noma in Copenhagen and the iconic rooms of Sketch in London, to Tango in Stavanger and his own Tempo Vinbar in Sandnes — Pål has built a career few Norwegian sommeliers can match.",
     "p3": "Now he's back where it all began: Skjolden Hotel by the Sognefjord. A deliberate return — not as a retreat home, but as a choice to bring everything he has learned back to a place that deserves it.",
     "p4": "He's not the kind who impresses you with names you can't pronounce. He's the kind who finds exactly the bottle that makes the evening unforgettable.",
+    "pull_quote": "He finds exactly the bottle that makes the evening unforgettable.",
     "certifications_label": "Certifications",
     "cert_1": "Certified Waiter (Fagbrev)",
     "cert_2": "Wine Director, Kulinarisk Akademi",
@@ -90,7 +91,7 @@
     "precision_quote": "The right glass at the right moment requires knowledge — and instinct.",
     "access_title": "Accessibility",
     "access_quote": "Good wine shouldn't be intimidating. It should be a door in.",
-    "regions_label": "Passions",
+    "regions_label": "My cup of tea",
     "regions_cta": "Read more",
     "regions_close": "Close",
     "regions_highlights_label": "Key grapes",
@@ -147,7 +148,9 @@
     "eyebrow": "International Press",
     "text": "In Stavanger, we are more classic. Champagne, red and white Burgundy, and German Riesling are all popular. Right now, the things I find most interesting are South African whites and reds, and Austrian Pinot Noir.",
     "author": "Pål Gøran Stolt-Larsen Pettersen",
-    "source": "VinePair"
+    "source": "VinePair",
+    "read_article": "Read the article on VinePair",
+    "url": "https://vinepair.com/articles/sommeliers-favorite-wines/"
   },
   "skjolden": {
     "eyebrow": "Skjolden Hotel",

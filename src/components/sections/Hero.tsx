@@ -36,8 +36,8 @@ export function Hero() {
           sizes="100vw"
           className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-warm-dark/70" />
-        <div className="absolute inset-0 bg-gradient-to-b from-warm-dark/40 via-transparent to-warm-dark" />
+        <div className="absolute inset-0 bg-warm-dark/40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-warm-dark/20 via-transparent to-warm-dark" />
       </motion.div>
 
       <motion.div
@@ -97,21 +97,6 @@ export function Hero() {
         </motion.p>
       </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1.4 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-3 text-warm-surface/70"
-      >
-        <span className="text-[10px] uppercase tracking-[0.3em]">
-          {t("scroll")}
-        </span>
-        <motion.span
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-          className="block h-10 w-px bg-gradient-to-b from-warm-gold to-transparent"
-        />
-      </motion.div>
     </section>
   );
 }

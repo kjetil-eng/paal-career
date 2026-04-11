@@ -37,15 +37,24 @@ export function Quote() {
             variants={fadeUp}
             className="mt-10 text-[11px] uppercase tracking-[0.3em] text-warm-surface/70 font-sans"
           >
-            — {t("author")}
+            {t("author")}
           </motion.p>
 
-          <motion.span
+          <motion.a
             variants={fadeUp}
-            className="mt-5 inline-block rounded-full bg-warm-cognac px-4 py-1.5 text-[10px] uppercase tracking-[0.2em] text-warm-surface"
+            href={t("url")}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="group mt-4 inline-flex items-center gap-2 border-b border-warm-gold/40 pb-1 font-cormorant text-base italic text-warm-gold transition-colors hover:border-warm-gold hover:text-warm-surface"
           >
-            {t("eyebrow")} · {t("source")}
-          </motion.span>
+            {t("read_article")}
+            <span
+              aria-hidden
+              className="inline-block transition-transform duration-300 group-hover:translate-x-1"
+            >
+              ↗
+            </span>
+          </motion.a>
         </motion.div>
       </div>
     </section>

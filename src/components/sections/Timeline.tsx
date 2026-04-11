@@ -13,12 +13,12 @@ type StopKey =
   | "noma"
   | "skjolden_start";
 
-const STOPS: { key: StopKey; current?: boolean }[] = [
+const STOPS: { key: StopKey; current?: boolean; hero?: boolean }[] = [
   { key: "skjolden_now", current: true },
   { key: "tempo" },
   { key: "tango" },
-  { key: "sketch" },
-  { key: "noma" },
+  { key: "sketch", hero: true },
+  { key: "noma", hero: true },
   { key: "skjolden_start" },
 ];
 
@@ -46,7 +46,7 @@ export function Timeline() {
             transition={{ duration: 0.8 }}
             className="mb-5 text-[11px] uppercase tracking-[0.3em] text-warm-cognac font-sans"
           >
-            — {t("eyebrow")}
+            {t("eyebrow")}
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -108,10 +108,31 @@ export function Timeline() {
                         {t("now_badge")}
                       </span>
                     )}
-                    <h3 className="font-playfair text-2xl text-warm-dark md:text-3xl">
+                    {stop.hero && (
+                      <span
+                        className={cn(
+                          "mb-3 inline-block border border-warm-cognac px-3 py-1 font-cormorant text-[11px] italic tracking-[0.1em] text-warm-cognac",
+                        )}
+                      >
+                        Prestisje
+                      </span>
+                    )}
+                    <h3
+                      className={cn(
+                        "font-playfair text-warm-dark",
+                        stop.hero
+                          ? "text-4xl md:text-5xl"
+                          : "text-2xl md:text-3xl",
+                      )}
+                    >
                       {sectionT(`${stop.key}.place`)}
                     </h3>
-                    <p className="mt-1 font-cormorant text-xl italic text-warm-cognac">
+                    <p
+                      className={cn(
+                        "mt-1 font-cormorant italic text-warm-cognac",
+                        stop.hero ? "text-2xl md:text-3xl" : "text-xl",
+                      )}
+                    >
                       {sectionT(`${stop.key}.role`)}
                     </p>
                     <p className="mt-2 text-[11px] uppercase tracking-[0.22em] text-warm-muted font-sans">
@@ -120,7 +141,12 @@ export function Timeline() {
                         ? ` · ${sectionT(`${stop.key}.period`)}`
                         : ""}
                     </p>
-                    <p className="mt-5 max-w-md text-warm-text/80 leading-relaxed md:ml-auto md:max-w-sm">
+                    <p
+                      className={cn(
+                        "mt-5 max-w-md text-warm-text/80 leading-relaxed md:ml-auto md:max-w-sm",
+                        stop.hero && "md:text-lg",
+                      )}
+                    >
                       {sectionT(`${stop.key}.description`)}
                     </p>
                   </div>

@@ -20,7 +20,7 @@ export function Tempo() {
           variants={fadeUp}
           className="mb-5 text-[11px] uppercase tracking-[0.3em] text-warm-cognac font-sans"
         >
-          — {t("eyebrow")}
+          {t("eyebrow")}
         </motion.p>
         <motion.h2
           variants={fadeUp}
