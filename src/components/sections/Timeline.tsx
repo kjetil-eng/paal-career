@@ -121,7 +121,7 @@ export function Timeline() {
                       className={cn(
                         "font-playfair text-warm-dark",
                         stop.hero
-                          ? "text-4xl md:text-5xl"
+                          ? "text-3xl sm:text-4xl md:text-5xl"
                           : "text-2xl md:text-3xl",
                       )}
                     >
@@ -130,7 +130,7 @@ export function Timeline() {
                     <p
                       className={cn(
                         "mt-1 font-cormorant italic text-warm-cognac",
-                        stop.hero ? "text-2xl md:text-3xl" : "text-xl",
+                        stop.hero ? "text-xl sm:text-2xl md:text-3xl" : "text-xl",
                       )}
                     >
                       {sectionT(`${stop.key}.role`)}

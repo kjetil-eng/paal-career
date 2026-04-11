@@ -62,7 +62,7 @@ export function Hero() {
           >
             {t.rich("heading_line1", {
               highlight: (chunks) => (
-                <span className="inline-block bg-[#6b1e28] px-[0.18em] pb-[0.02em] text-warm-surface">
+                <span className="inline-block bg-[#6b1e28] px-[0.08em] pb-[0.02em] text-warm-surface md:px-[0.18em]">
                   {chunks}
                 </span>
               ),

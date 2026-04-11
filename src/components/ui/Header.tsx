@@ -107,7 +107,7 @@ export function Header() {
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 24, stiffness: 180 }}
               onClick={(e) => e.stopPropagation()}
-              className="absolute right-0 top-0 h-full w-[82%] max-w-sm bg-warm-surface px-8 py-10 shadow-xl flex flex-col"
+              className="absolute right-0 top-0 h-full w-[86%] max-w-sm bg-warm-surface px-6 py-10 shadow-xl flex flex-col sm:px-8"
             >
               <div className="mb-12 flex items-center justify-between">
                 <span className="font-playfair text-sm tracking-[0.28em] text-warm-dark">

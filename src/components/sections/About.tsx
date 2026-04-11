@@ -70,7 +70,7 @@ export function About() {
             {/* Pull-quote — editorial rhythm break */}
             <motion.blockquote
               variants={fadeUp}
-              className="my-14 border-l-2 border-warm-cognac pl-8 font-cormorant text-3xl italic leading-[1.25] text-warm-dark md:text-4xl md:leading-[1.2]"
+              className="my-14 border-l-2 border-warm-cognac pl-5 font-cormorant text-[1.6rem] italic leading-[1.25] text-warm-dark md:pl-8 md:text-4xl md:leading-[1.2]"
             >
               &ldquo;{t("pull_quote")}&rdquo;
             </motion.blockquote>

@@ -18,7 +18,7 @@ export function Skjolden() {
   return (
     <section ref={ref} className="relative bg-warm-surface">
       <div className="mx-auto grid max-w-none grid-cols-1 lg:grid-cols-2">
-        <div className="relative aspect-[4/3] overflow-hidden lg:aspect-auto lg:min-h-[80vh]">
+        <div className="relative aspect-[5/4] overflow-hidden lg:aspect-auto lg:min-h-[80vh]">
           <motion.div
             style={{ y: imgY }}
             className="absolute inset-0 -top-12 -bottom-12 will-change-transform"

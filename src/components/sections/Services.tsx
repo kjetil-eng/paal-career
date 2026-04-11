@@ -52,7 +52,7 @@ export function Services() {
               variants={fadeUp}
               whileHover={{ y: -6 }}
               transition={{ type: "spring", stiffness: 260, damping: 22 }}
-              className="group relative flex flex-col border border-warm-cream bg-warm-surface p-10 transition-colors duration-300 hover:border-warm-gold hover:shadow-[0_20px_60px_-30px_rgba(26,14,8,0.35)]"
+              className="group relative flex flex-col border border-warm-cream bg-warm-surface p-7 md:p-10 transition-colors duration-300 hover:border-warm-gold hover:shadow-[0_20px_60px_-30px_rgba(26,14,8,0.35)]"
             >
               <span className="font-cormorant text-sm italic text-warm-muted">
                 {num}
