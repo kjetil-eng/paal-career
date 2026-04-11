@@ -1,0 +1,183 @@
+{
+  "meta": {
+    "title": "Pål Gøran Stolt-Larsen Pettersen — Sommelier & Vinkelner",
+    "description": "F&B Manager ved Skjolden Hotell. Erfaring fra Noma, Sketch London og Tango Stavanger. Vinkurs, foredrag og private vinarrangementer."
+  },
+  "nav": {
+    "about": "Om Pål",
+    "career": "Karriere",
+    "philosophy": "Filosofi",
+    "services": "Tjenester",
+    "contact": "Kontakt",
+    "menu": "Meny",
+    "close": "Lukk"
+  },
+  "hero": {
+    "eyebrow": "Sommelier · Vinkelner",
+    "heading_line1": "Vin er ikke bare",
+    "heading_line2": "i glasset.",
+    "subheading": "Det er i henda som dyrker, i jorda som bærer, i øyeblikket som deler.",
+    "title": "F&B Manager, Skjolden Hotell · Sommelier & Vinkelner",
+    "scroll": "Bla"
+  },
+  "about": {
+    "eyebrow": "Om Pål",
+    "heading": "Fra Sogn til London. Og tilbake.",
+    "p1": "Pål Gøran Stolt-Larsen Pettersen har tilbrakt hele sitt yrkesliv i møtet mellom mennesker og vin.",
+    "p2": "Fra de kjølige kjellerne på Noma i København og de ikoniske salene på Sketch i London, til Tango i Stavanger og hans eget Tempo Vinbar i Sandnes — har Pål bygget seg en karriere få norske sommelierer kan matche.",
+    "p3": "Nå er han tilbake der det hele startet: Skjolden Hotell ved Sognefjorden. En bevisst retur — ikke som flukten hjem, men som valget om å bringe alt han har lært tilbake til et sted som fortjener det.",
+    "p4": "Han er ikke den typen som imponerer deg med et navn du ikke kan uttale. Han er den typen som finner akkurat den flasken som gjør kvelden uforglemmelig.",
+    "certifications_label": "Sertifiseringer",
+    "cert_1": "Fagbrev Servitør",
+    "cert_2": "Vinkelner, Kulinarisk Akademi",
+    "cert_3": "WSET — Wine & Spirit Education Trust"
+  },
+  "timeline": {
+    "eyebrow": "Karriere",
+    "heading": "En reise gjennom verdens vinscener.",
+    "now_badge": "Nå",
+    "stops": {
+      "skjolden_now": {
+        "place": "Skjolden Hotell",
+        "role": "F&B Manager",
+        "location": "Skjolden, Indre Sogn",
+        "period": "2026–nå",
+        "description": "En full sirkel. Tilbake til fjorden — nå som ansvarlig for hele mat- og drikkeopplevelsen."
+      },
+      "tempo": {
+        "place": "Tempo Vinbar",
+        "role": "Medeier & Sommelier",
+        "location": "Sandnes",
+        "period": "2022–2026",
+        "description": "Grunnla sin egen vinbar fra grunnen av. Ambisjonen: gjøre Sandnes til en vinby."
+      },
+      "tango": {
+        "place": "Tango Bar & Kjøkken",
+        "role": "Restaurant Manager & Sommelier",
+        "location": "Stavanger",
+        "period": "~10 år",
+        "description": "Stavangers mest prestisjefulle fine dining. Sitert i VinePair blant verdens fremste sommelierer."
+      },
+      "sketch": {
+        "place": "Sketch",
+        "role": "Sommelier",
+        "location": "London, Storbritannia",
+        "period": "",
+        "description": "Et av Londons mest ikoniske Michelin-restaurantkomplekser. Her ble det internasjonale perspektivet født."
+      },
+      "noma": {
+        "place": "Noma",
+        "role": "Sommelier",
+        "location": "København, Danmark",
+        "period": "",
+        "description": "Verdens mest anerkjente restaurant. Formet forståelsen av råvare, terroir og presisjon."
+      },
+      "skjolden_start": {
+        "place": "Skjolden Hotell",
+        "role": "Tidlig karriere",
+        "location": "Skjolden, Indre Sogn",
+        "period": "",
+        "description": "Her startet det hele — ved Sognefjorden, langt fra støyen."
+      }
+    }
+  },
+  "philosophy": {
+    "eyebrow": "Vinfilosofi",
+    "heading": "Terroir. Presisjon. Eleganse.",
+    "terroir_title": "Terroir",
+    "terroir_quote": "Vinen starter i jorda, ikke på etiketten.",
+    "precision_title": "Presisjon",
+    "precision_quote": "Det riktige glasset til rett øyeblikk krever kunnskap — og instinkt.",
+    "access_title": "Tilgjengelighet",
+    "access_quote": "God vin skal ikke være skummelt. Det skal være en dør inn.",
+    "regions_label": "Hjertesaker",
+    "regions_cta": "Les mer",
+    "regions_close": "Lukk",
+    "regions_highlights_label": "Nøkkeldruer",
+    "regions": [
+      {
+        "name": "Burgund",
+        "number": "01",
+        "subtitle": "Frankrike · Côte d'Or",
+        "tagline": "Hvor Pinot Noir og Chardonnay når sitt ypperste.",
+        "body": "Ingen region snakker terroir høyere enn Burgund. Fra Chablis' skarpe kalkstein til Côte d'Or sine grand cru-vinmarker, hver landsby bærer sin egen signatur. For Pål er Burgund stedet der vin ikke handler om druen, men om jorden druen vokste i — den eneste regionen i verden der to vinmarker 200 meter fra hverandre gir vin som smaker som to forskjellige verdener.",
+        "highlights": ["Pinot Noir", "Chardonnay", "Gevrey-Chambertin", "Meursault", "Chablis"]
+      },
+      {
+        "name": "Champagne",
+        "number": "02",
+        "subtitle": "Frankrike · Reims & Épernay",
+        "tagline": "Den eneste drikken verdig en virkelig anledning.",
+        "body": "Champagne er presisjon i boble-form. Pål holder spesielt av grower champagne — husene der vintagen bærer jordens stemme, ikke merkevaren. Salon, Jacques Selosse, Ulysse Collin — produsenter som har gjort Champagne til en kategori i seg selv. Glem merketenking. Lytt til krittet, kalksteinen og regnet.",
+        "highlights": ["Chardonnay", "Pinot Noir", "Pinot Meunier", "Grower Champagne"]
+      },
+      {
+        "name": "Sør-Afrika",
+        "number": "03",
+        "subtitle": "Swartland · Stellenbosch",
+        "tagline": "Det gamle kontinentet, den nye stemmen.",
+        "body": "Sør-Afrika er Påls mest lidenskapelige moderne fascinasjon. Fra granittskråningene i Swartland til Stellenbosch' gamle Chenin Blanc-vinmarker lages hvite og røde viner med en eleganse som matcher det beste fra Europa — men med sin egen ukompromitterende stemme. Produsenter som Mullineux, Sadie Family og Alheit er navnene Pål drar frem når folk spør hvor vinverdenen er på vei.",
+        "highlights": ["Chenin Blanc", "Cinsault", "Grenache", "Syrah", "Mullineux", "Sadie Family"]
+      },
+      {
+        "name": "Portugal",
+        "number": "04",
+        "subtitle": "Douro · Dão · Vinho Verde",
+        "tagline": "Europas best bevarte hemmelighet.",
+        "body": "Portugisiske hvitviner — særlig fra Douro og Dão — er en åpenbaring for dem som tør å forlate det velkjente. Encruzado, Arinto og Alvarinho gir viner med struktur, mineralitet og lagringsevne få trodde mulig fra halvøya. Pål mener det er her Europas neste store hvitvinsrevolusjon allerede har begynt. Mens resten av verden snakker om Burgund, smiler portugiserne stille i kjelleren.",
+        "highlights": ["Encruzado", "Arinto", "Alvarinho", "Touriga Nacional"]
+      }
+    ]
+  },
+  "services": {
+    "eyebrow": "Tjenester",
+    "heading": "Hva Pål kan gjøre for deg.",
+    "courses_title": "Vinkurs",
+    "courses_desc": "Skreddersydde kurs for bedrifter og privatpersoner — fra nybegynner til viderekommet.",
+    "talks_title": "Foredrag",
+    "talks_desc": "Etterspurt foredragsholder om vin, mat og vinkultur — med historier fra verdens beste restauranter.",
+    "events_title": "Private vinarrangementer",
+    "events_desc": "Eksklusive vinopplevelser tilpasset din anledning. Fra intime middager til større selskaper.",
+    "consulting_title": "Vinrådgivning",
+    "consulting_desc": "Vinkart, innkjøp og vinprofil for restauranter som vil ta det neste steget.",
+    "sommelier_title": "Eksklusiv servitørtjeneste",
+    "sommelier_desc": "Profesjonell vinkelner til private og eksklusive arrangementer."
+  },
+  "quote": {
+    "eyebrow": "International Press",
+    "text": "In Stavanger, we are more classic. Champagne, red and white Burgundy, and German Riesling are all popular. Right now, the things I find most interesting are South African whites and reds, and Austrian Pinot Noir.",
+    "author": "Pål Gøran Stolt-Larsen Pettersen",
+    "source": "VinePair"
+  },
+  "skjolden": {
+    "eyebrow": "Skjolden Hotell",
+    "heading": "Der fjorden slutter og veien begynner.",
+    "ingress": "Skjolden er ikke et sted man havner. Det er et sted man velger.",
+    "body": "Som F&B Manager ved Skjolden Hotell har Pål ansvaret for hele mat- og drikkeopplevelsen ved fjorden. Fra vinkart til vertskap — en rolle som samler alt han har lært.",
+    "cta": "Besøk Skjolden Hotell"
+  },
+  "tempo": {
+    "eyebrow": "Tempo Vinbar, 2022–2026",
+    "heading": "Et kapittel å være stolt av.",
+    "body": "Fra 2022 til 2026 bygde Pål Tempo Vinbar i Sandnes fra ingenting — en vinbar som løftet hele byens vinscene. Noen kapitler er ikke slutten. De er beviset."
+  },
+  "contact": {
+    "eyebrow": "Kontakt",
+    "heading": "Ta kontakt",
+    "subheading": "Enten du planlegger et arrangement, ønsker et vinkurs, eller bare vil snakke vin.",
+    "name": "Navn",
+    "email": "E-post",
+    "message": "Melding",
+    "send": "Send melding",
+    "sending": "Sender …",
+    "success": "Takk. Pål vender tilbake til deg snart.",
+    "error": "Noe gikk galt. Prøv igjen, eller send en e-post direkte."
+  },
+  "footer": {
+    "tagline": "Sommelier · Vinkelner · Vertskap",
+    "rights": "Alle rettigheter reservert.",
+    "skjolden_link": "Skjolden Hotell",
+    "back_to_top": "Til toppen"
+  },
+  "parallax_words": "TERROIR · PRESISJON · ELEGANSE · SOMMELIER · SOGNEFJORDEN"
+}
