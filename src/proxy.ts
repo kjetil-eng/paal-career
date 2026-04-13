@@ -5,6 +5,10 @@ export default createMiddleware(routing);
 
 export const config = {
   // Match all pathnames except for
-  // - api routes, _next, _vercel, static assets
-  matcher: ["/((?!api|_next|_vercel|.*\\..*).*)"],
+  // - api routes, _next, _vercel
+  // - file-based metadata routes (icon, apple-icon, opengraph-image, sitemap, robots)
+  // - static assets (anything containing a dot)
+  matcher: [
+    "/((?!api|_next|_vercel|icon|apple-icon|opengraph-image|sitemap|robots|.*\\..*).*)",
+  ],
 };
