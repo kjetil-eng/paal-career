@@ -88,9 +88,9 @@ export function About() {
                 {t("certifications_label")}
               </p>
               <ul className="flex flex-wrap gap-x-8 gap-y-3 font-cormorant text-lg italic text-warm-dark">
-                <li>— {t("cert_1")}</li>
-                <li>— {t("cert_2")}</li>
-                <li>— {t("cert_3")}</li>
+                <li>{t("cert_1")}</li>
+                <li>{t("cert_2")}</li>
+                <li>{t("cert_3")}</li>
               </ul>
             </motion.div>
           </motion.div>

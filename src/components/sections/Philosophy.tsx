@@ -146,7 +146,7 @@ export function Philosophy() {
             </ul>
 
             {/* Right: info panel (always visible, fades between regions) */}
-            <div className="md:col-span-8 relative md:min-h-[420px]">
+            <div className="md:col-span-8 relative sm:min-h-[340px] md:min-h-[420px]">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeRegion.name}
