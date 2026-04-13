@@ -20,7 +20,7 @@ export function Footer() {
 
           <nav className="flex flex-wrap items-center gap-5 md:justify-center">
             <a
-              href="https://www.skjoldenhotell.no"
+              href="https://www.skjoldenhotel.no/"
               target="_blank"
               rel="noreferrer noopener"
               className="text-[11px] uppercase tracking-[0.22em] text-warm-surface/75 hover:text-warm-gold transition-colors"

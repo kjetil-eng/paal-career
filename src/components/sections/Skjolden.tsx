@@ -68,7 +68,7 @@ export function Skjolden() {
             </motion.p>
             <motion.div variants={fadeUp} className="mt-10">
               <a
-                href="https://www.skjoldenhotell.no"
+                href="https://www.skjoldenhotel.no/"
                 target="_blank"
                 rel="noreferrer noopener"
                 className="group inline-flex items-center gap-3 bg-warm-cognac px-7 py-4 text-sm uppercase tracking-[0.22em] text-warm-surface transition-colors hover:bg-warm-terracotta"

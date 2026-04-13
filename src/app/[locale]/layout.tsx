@@ -150,7 +150,7 @@ export default async function LocaleLayout({
     worksFor: {
       "@type": "Organization",
       name: "Skjolden Hotell",
-      url: "https://www.skjoldenhotell.no",
+      url: "https://www.skjoldenhotel.no",
     },
     address: {
       "@type": "PostalAddress",
